@@ -1,4 +1,4 @@
-package entity;
+package cn.com.broad.entity;
 
 /*
  * 用户权限表

@@ -1,4 +1,4 @@
-package entity;
+package cn.com.broad.entity;
 /*
  * ”√ªß±Ì
  * */

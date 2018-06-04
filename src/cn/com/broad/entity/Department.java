@@ -1,4 +1,4 @@
-package entity;
+package cn.com.broad.entity;
 
 /*
  * 部门表
@@ -6,6 +6,15 @@ package entity;
 public class Department {
 	private int departmentID;// 部门ID
 	private String depaertmantName;// 部门名称
+	private int companyID;
+
+	public int getCompanyID() {
+		return companyID;
+	}
+
+	public void setCompanyID(int companyID) {
+		this.companyID = companyID;
+	}
 
 	public int getDepartmentID() {
 		return departmentID;
@@ -23,10 +32,11 @@ public class Department {
 		this.depaertmantName = depaertmantName;
 	}
 
-	public Department(int departmentID, String depaertmantName) {
+	public Department(int departmentID, String depaertmantName,int companyID) {
 		super();
 		this.departmentID = departmentID;
 		this.depaertmantName = depaertmantName;
+		this.companyID=companyID;
 	}
 
 	public Department() {

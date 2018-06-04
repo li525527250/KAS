@@ -1,4 +1,4 @@
-package entity;
+package cn.com.broad.entity;
 
 /*
  * 员工岗位表
@@ -6,7 +6,7 @@ package entity;
 public class Posts {
 	private int postID;// 岗位ID
 	private String postName;// 岗位名称
-	private String departmentID;// 部门ID
+	private int departmentID;// 部门ID
 
 	public int getPostID() {
 		return postID;
@@ -24,15 +24,15 @@ public class Posts {
 		this.postName = postName;
 	}
 
-	public String getDepartmentID() {
+	public int getDepartmentID() {
 		return departmentID;
 	}
 
-	public void setDepartmentID(String departmentID) {
+	public void setDepartmentID(int departmentID) {
 		this.departmentID = departmentID;
 	}
 
-	public Posts(int postID, String postName, String departmentID) {
+	public Posts(int postID, String postName, int departmentID) {
 		super();
 		this.postID = postID;
 		this.postName = postName;

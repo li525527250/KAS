@@ -1,13 +1,12 @@
 package cn.com.broad.entity;
-
 /*
- *kpi指标表
+ * 某一个员工KPI指标详情
  * */
-public class Kpiindex {
-	private int kpiIndexID;// pki指标ID
+public class StaffKpiIndex {
+	private String staffName;// 员工名称
+	private String postName;// 岗位名称
+	private String moduleName;// 模板描述
 	private String kpiIndexName;// kpi名字
-	private int moduleID;// kpi模型
-	private int postID;// 岗位ID
 	private String weight;// 权重
 	private String span;// 取值范围
 	private String indexDefinition;// 指标释义
@@ -19,145 +18,105 @@ public class Kpiindex {
 	private String currentReality;// 当期实际
 	private String currentYieldRate;// 当期达成率
 	private String currentScore;// 当期得分
-	private int ifDelete;//是否删除0-否、1-是  --------新增
-
-	public int getIfDelete() {
-		return ifDelete;
+	public String getStaffName() {
+		return staffName;
 	}
-
-	public void setIfDelete(int ifDelete) {
-		this.ifDelete = ifDelete;
+	public void setStaffName(String staffName) {
+		this.staffName = staffName;
 	}
-
-	public int getKpiIndexID() {
-		return kpiIndexID;
+	public String getPostName() {
+		return postName;
 	}
-
-	public void setKpiIndexID(int kpiIndexID) {
-		this.kpiIndexID = kpiIndexID;
+	public void setPostName(String postName) {
+		this.postName = postName;
 	}
-
+	public String getModuleName() {
+		return moduleName;
+	}
+	public void setModuleName(String moduleName) {
+		this.moduleName = moduleName;
+	}
 	public String getKpiIndexName() {
 		return kpiIndexName;
 	}
-
 	public void setKpiIndexName(String kpiIndexName) {
 		this.kpiIndexName = kpiIndexName;
 	}
-
-	public int getModuleID() {
-		return moduleID;
-	}
-
-	public void setModuleID(int moduleID) {
-		this.moduleID = moduleID;
-	}
-
-	public int getPostID() {
-		return postID;
-	}
-
-	public void setPostID(int postID) {
-		this.postID = postID;
-	}
-
 	public String getWeight() {
 		return weight;
 	}
-
 	public void setWeight(String weight) {
 		this.weight = weight;
 	}
-
 	public String getSpan() {
 		return span;
 	}
-
 	public void setSpan(String span) {
 		this.span = span;
 	}
-
 	public String getIndexDefinition() {
 		return indexDefinition;
 	}
-
 	public void setIndexDefinition(String indexDefinition) {
 		this.indexDefinition = indexDefinition;
 	}
-
 	public String getDateSources() {
 		return dateSources;
 	}
-
 	public void setDateSources(String dateSources) {
 		this.dateSources = dateSources;
 	}
-
 	public String getComputationalFormula() {
 		return computationalFormula;
 	}
-
 	public void setComputationalFormula(String computationalFormula) {
 		this.computationalFormula = computationalFormula;
 	}
-
 	public String getAnnualObjectives() {
 		return annualObjectives;
 	}
-
 	public void setAnnualObjectives(String annualObjectives) {
 		this.annualObjectives = annualObjectives;
 	}
-
 	public String getQuarterlyAccounting() {
 		return quarterlyAccounting;
 	}
-
 	public void setQuarterlyAccounting(String quarterlyAccounting) {
 		this.quarterlyAccounting = quarterlyAccounting;
 	}
-
 	public String getCurrentTarget() {
 		return currentTarget;
 	}
-
 	public void setCurrentTarget(String currentTarget) {
 		this.currentTarget = currentTarget;
 	}
-
 	public String getCurrentReality() {
 		return currentReality;
 	}
-
 	public void setCurrentReality(String currentReality) {
 		this.currentReality = currentReality;
 	}
-
 	public String getCurrentYieldRate() {
 		return currentYieldRate;
 	}
-
 	public void setCurrentYieldRate(String currentYieldRate) {
 		this.currentYieldRate = currentYieldRate;
 	}
-
 	public String getCurrentScore() {
 		return currentScore;
 	}
-
 	public void setCurrentScore(String currentScore) {
 		this.currentScore = currentScore;
 	}
-
-	public Kpiindex(int kpiIndexID, String kpiIndexName, int moduleID, int postID, String weight, String span,
-			String indexDefinition, String dateSources, String computationalFormula, String annualObjectives,
-			String quarterlyAccounting, String currentTarget, String currentReality, String currentYieldRate,
-			String currentScore,int ifdelete) {
+	public StaffKpiIndex(String staffName, String postName, String moduleName, String kpiIndexName, String weight,
+			String span, String indexDefinition, String dateSources, String computationalFormula,
+			String annualObjectives, String quarterlyAccounting, String currentTarget, String currentReality,
+			String currentYieldRate, String currentScore) {
 		super();
-		this.kpiIndexID = kpiIndexID;
+		this.staffName = staffName;
+		this.postName = postName;
+		this.moduleName = moduleName;
 		this.kpiIndexName = kpiIndexName;
-		this.moduleID = moduleID;
-		this.postID = postID;
 		this.weight = weight;
 		this.span = span;
 		this.indexDefinition = indexDefinition;
@@ -169,11 +128,9 @@ public class Kpiindex {
 		this.currentReality = currentReality;
 		this.currentYieldRate = currentYieldRate;
 		this.currentScore = currentScore;
-		this.ifDelete=ifdelete;
 	}
-
-	public Kpiindex() {
+	public StaffKpiIndex() {
 		super();
 	}
-
+	
 }

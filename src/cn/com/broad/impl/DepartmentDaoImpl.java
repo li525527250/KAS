@@ -19,8 +19,8 @@ public class DepartmentDaoImpl implements DepartmentDao {
 	@Override
 	public boolean addDepartment(Department department) {
 		// TODO Auto-generated method stub
-		String sql = "insert into department VALUES(null,?,?)";
-		Object[] args = new Object[] { department.getDepaertmantName(), department.getCompanyID() };
+		String sql = "insert into department VALUES(null,?,?,?)";
+		Object[] args = new Object[] { department.getDepaertmantName(), department.getCompanyID(),department.getIfDelete() };
 		return BaseDao.executeUpdate(sql, args);
 	}
 
@@ -37,8 +37,8 @@ public class DepartmentDaoImpl implements DepartmentDao {
 	@Override
 	public boolean updateDepartment(Department department) {
 		// TODO Auto-generated method stub
-		String sql = "UPDATE department set depaertmantName=?,companyID=? WHERE departmentID=?";
-		Object[] args = new Object[] { department.getDepaertmantName(), department.getCompanyID(),
+		String sql = "UPDATE department set depaertmantName=?,companyID=?,ifdelete=? WHERE departmentID=?";
+		Object[] args = new Object[] { department.getDepaertmantName(), department.getCompanyID(),department.getIfDelete(),
 				department.getDepartmentID() };
 		return BaseDao.executeUpdate(sql, args);
 	}
@@ -60,6 +60,7 @@ public class DepartmentDaoImpl implements DepartmentDao {
 				department.setDepartmentID(rs.getInt(1));
 				department.setDepaertmantName(rs.getString(2));
 				department.setCompanyID(rs.getInt(3));
+				department.setIfDelete(rs.getInt(4));
 				list.add(department);
 			}
 		} catch (Exception e) {
@@ -86,6 +87,7 @@ public class DepartmentDaoImpl implements DepartmentDao {
 				department.setCompanyID(rs.getInt(1));
 				department.setDepaertmantName(rs.getString(2));
 				department.setCompanyID(rs.getInt(3));
+				department.setIfDelete(rs.getInt(4));
 				list.add(department);
 			}
 		} catch (Exception e) {

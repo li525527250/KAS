@@ -8,6 +8,15 @@ public class Staffscore {
 	private int staffScore;// 员工分数
 	private String startDate;// 员工分数查询开始时间
 	private String endDate;// 员工分数查询结束时间
+	private int ifDelete;//是否删除0-否、1-是  --------新增
+
+	public int getIfDelete() {
+		return ifDelete;
+	}
+
+	public void setIfDelete(int ifDelete) {
+		this.ifDelete = ifDelete;
+	}
 
 	public int getStaffScoreID() {
 		return staffScoreID;
@@ -49,13 +58,14 @@ public class Staffscore {
 		this.endDate = endDate;
 	}
 
-	public Staffscore(int staffScoreID, String staffJobNumber, int staffScore, String startDate, String endDate) {
+	public Staffscore(int staffScoreID, String staffJobNumber, int staffScore, String startDate, String endDate,int ifdelete) {
 		super();
 		this.staffScoreID = staffScoreID;
 		this.staffJobNumber = staffJobNumber;
 		this.staffScore = staffScore;
 		this.startDate = startDate;
 		this.endDate = endDate;
+		this.ifDelete=ifdelete;
 	}
 
 	public Staffscore() {

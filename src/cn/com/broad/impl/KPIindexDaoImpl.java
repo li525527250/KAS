@@ -20,12 +20,12 @@ public class KPIindexDaoImpl implements KPIindexDao {
 	@Override
 	public boolean addKPIindex(Kpiindex kpiindex) {
 		// TODO Auto-generated method stub
-		String sql = "insert into module VALUES(null,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into module VALUES(null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		Object[] args = new Object[] { kpiindex.getKpiIndexName(), kpiindex.getModuleID(), kpiindex.getPostID(),
 				kpiindex.getWeight(), kpiindex.getSpan(), kpiindex.getIndexDefinition(), kpiindex.getDateSources(),
 				kpiindex.getComputationalFormula(), kpiindex.getAnnualObjectives(), kpiindex.getQuarterlyAccounting(),
 				kpiindex.getCurrentTarget(), kpiindex.getCurrentReality(), kpiindex.getCurrentYieldRate(),
-				kpiindex.getCurrentScore() };
+				kpiindex.getCurrentScore(),kpiindex.getIfDelete() };
 		return BaseDao.executeUpdate(sql, args);
 	}
 
@@ -43,14 +43,14 @@ public class KPIindexDaoImpl implements KPIindexDao {
 	public boolean updateKPIindex(Kpiindex kpiindex) {
 		// TODO Auto-generated method stub
 		String sql = "UPDATE kpiindex k set k.KPAIndexName=?,k.moduleID=?,k.postID=?,"
-				+ "k.weight=?,k.span=?,k.indexDefinition,k.dateSources=?,k.computationalFormula=?,"
+				+ "k.weight=?,k.span=?,k.indexDefinition=?,k.dateSources=?,k.computationalFormula=?,"
 				+ "k.annualObjectives=?,k.quarterlyAccounting=?,k.currentTarget=?,k.currentReality=?,"
-				+ "k.currentYieldRate=?,k.currentScore=? where k.KPAIndexID=?";
+				+ "k.currentYieldRate=?,k.currentScore=?,k.ifdelete=? where k.KPAIndexID=?";
 		Object[] args = new Object[] { kpiindex.getKpiIndexName(), kpiindex.getModuleID(), kpiindex.getPostID(),
 				kpiindex.getWeight(), kpiindex.getSpan(), kpiindex.getIndexDefinition(), kpiindex.getDateSources(),
 				kpiindex.getComputationalFormula(), kpiindex.getAnnualObjectives(), kpiindex.getQuarterlyAccounting(),
 				kpiindex.getCurrentTarget(), kpiindex.getCurrentReality(), kpiindex.getCurrentYieldRate(),
-				kpiindex.getCurrentScore(), kpiindex.getKpiIndexID() };
+				kpiindex.getCurrentScore(),kpiindex.getIfDelete(), kpiindex.getKpiIndexID() };
 		return BaseDao.executeUpdate(sql, args);
 	}
 
@@ -83,10 +83,12 @@ public class KPIindexDaoImpl implements KPIindexDao {
 				k.setCurrentReality(rs.getString(13));
 				k.setCurrentYieldRate(rs.getString(14));
 				k.setCurrentScore(rs.getString(15));
+				k.setIfDelete(rs.getInt(16));
 				list.add(k);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}
 		return list;
 	}
@@ -121,10 +123,12 @@ public class KPIindexDaoImpl implements KPIindexDao {
 				k.setCurrentReality(rs.getString(13));
 				k.setCurrentYieldRate(rs.getString(14));
 				k.setCurrentScore(rs.getString(15));
+				k.setIfDelete(rs.getInt(16));
 				list.add(k);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}
 		return list;
 	}

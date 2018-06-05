@@ -9,7 +9,6 @@ import java.util.List;
 
 import cn.com.broad.dao.BaseDao;
 import cn.com.broad.dao.PostsDao;
-import cn.com.broad.entity.Department;
 import cn.com.broad.entity.Posts;
 
 /*
@@ -20,8 +19,8 @@ public class PostDaoImpl implements PostsDao {
 	@Override
 	public boolean addPost(Posts posts) {
 		// TODO Auto-generated method stub
-		String sql = "insert into posts VALUES(null,?,?)";
-		Object[] args = new Object[] { posts.getPostName(), posts.getDepartmentID() };
+		String sql = "insert into posts VALUES(null,?,?,?)";
+		Object[] args = new Object[] { posts.getPostName(), posts.getDepartmentID(),posts.getIfDelete() };
 		return BaseDao.executeUpdate(sql, args);
 	}
 
@@ -38,8 +37,8 @@ public class PostDaoImpl implements PostsDao {
 	@Override
 	public boolean updatePost(Posts posts) {
 		// TODO Auto-generated method stub
-		String sql = "UPDATE posts p set p.postName=?,p.departmentID=? WHERE p.postID=?";
-		Object[] args = new Object[] { posts.getPostName(), posts.getDepartmentID(), posts.getPostID() };
+		String sql = "UPDATE posts p set p.postName=?,p.departmentID=?,p.ifdelete=? WHERE p.postID=?";
+		Object[] args = new Object[] { posts.getPostName(), posts.getDepartmentID(),posts.getIfDelete(), posts.getPostID() };
 		return BaseDao.executeUpdate(sql, args);
 	}
 
@@ -60,6 +59,7 @@ public class PostDaoImpl implements PostsDao {
 				posts.setPostID(rs.getInt(1));
 				posts.setPostName(rs.getString(2));
 				posts.setDepartmentID(rs.getInt(3));
+				posts.setIfDelete(rs.getInt(4));
 				list.add(posts);
 			}
 		} catch (Exception e) {
@@ -86,6 +86,7 @@ public class PostDaoImpl implements PostsDao {
 				posts.setPostID(rs.getInt(1));
 				posts.setPostName(rs.getString(2));
 				posts.setDepartmentID(rs.getInt(3));
+				posts.setIfDelete(rs.getInt(4));
 				list.add(posts);
 			}
 		} catch (Exception e) {

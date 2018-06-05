@@ -18,8 +18,8 @@ public class CompanyDaoImpl implements companyDao {
 	@Override
 	public boolean addCompany(Company companyVO) {
 		// TODO Auto-generated method stub
-		String sql = "insert into company VALUES(null,?)";
-		Object[] args = new Object[] { companyVO.getCompanyName() };
+		String sql = "insert into company VALUES(null,?,?)";
+		Object[] args = new Object[] { companyVO.getCompanyName(),companyVO.getIfDelete() };
 		return BaseDao.executeUpdate(sql, args);
 	}
 
@@ -27,8 +27,8 @@ public class CompanyDaoImpl implements companyDao {
 	@Override
 	public boolean updateCompany(Company companyVO) {
 		// TODO Auto-generated method stub
-		String sql = "update company set companyName=? where companyID=? ";
-		Object[] args = new Object[] { companyVO.getCompanyName(), companyVO.getCompanyID() };
+		String sql = "update company set companyName=?,ifdelete=? where companyID=? ";
+		Object[] args = new Object[] { companyVO.getCompanyName(),companyVO.getIfDelete(),companyVO.getCompanyID() };
 		return BaseDao.executeUpdate(sql, args);
 	}
 
@@ -56,6 +56,7 @@ public class CompanyDaoImpl implements companyDao {
 				Company company = new Company();
 				company.setCompanyID(rs.getInt(1));
 				company.setCompanyName(rs.getString(2));
+				company.setIfDelete(rs.getInt(3));
 				list.add(company);
 			}
 		} catch (Exception e) {

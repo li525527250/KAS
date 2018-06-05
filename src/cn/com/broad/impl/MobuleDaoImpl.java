@@ -19,8 +19,8 @@ public class MobuleDaoImpl implements ModuleDao {
 	@Override
 	public boolean addModule(Module module) {
 		// TODO Auto-generated method stub
-		String sql = "insert into module VALUES(null,?,?)";
-		Object[] args = new Object[] { module.getModuleName(), module.getPostID() };
+		String sql = "insert into module VALUES(null,?,?,?)";
+		Object[] args = new Object[] { module.getModuleName(), module.getPostID(),module.getIfDelete() };
 		return BaseDao.executeUpdate(sql, args);
 	}
 
@@ -37,8 +37,8 @@ public class MobuleDaoImpl implements ModuleDao {
 	@Override
 	public boolean updateModule(Module module) {
 		// TODO Auto-generated method stub
-		String sql = "update module set moduleName=?,postID=? WHERE moduleID=?";
-		Object[] args = new Object[] { module.getModuleName(), module.getPostID(), module.getModuleID() };
+		String sql = "update module set moduleName=?,postID=?,ifdelete=? WHERE moduleID=?";
+		Object[] args = new Object[] { module.getModuleName(), module.getPostID(),module.getIfDelete(),module.getModuleID() };
 		return BaseDao.executeUpdate(sql, args);
 	}
 
@@ -59,6 +59,7 @@ public class MobuleDaoImpl implements ModuleDao {
 				module.setModuleID(rs.getInt(1));
 				module.setModuleName(rs.getString(2));
 				module.setPostID(rs.getInt(3));
+				module.setIfDelete(rs.getInt(4));
 				list.add(module);
 			}
 		} catch (Exception e) {
@@ -85,6 +86,7 @@ public class MobuleDaoImpl implements ModuleDao {
 				module.setModuleID(rs.getInt(1));
 				module.setModuleName(rs.getString(2));
 				module.setPostID(rs.getInt(3));
+				module.setIfDelete(rs.getInt(4));
 				list.add(module);
 			}
 		} catch (Exception e) {

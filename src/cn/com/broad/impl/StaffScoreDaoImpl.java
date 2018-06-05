@@ -19,9 +19,9 @@ public class StaffScoreDaoImpl implements StaffScoreDao {
 	@Override
 	public boolean addStaffScore(Staffscore staffscore) {
 		// TODO Auto-generated method stub
-		String sql = "insert into staffscore VALUES(null,?,?,?,?)";
+		String sql = "insert into staffscore VALUES(null,?,?,?,?,?)";
 		Object[] args = new Object[] { staffscore.getStaffJobNumber(), staffscore.getStaffScore(),
-				staffscore.getStartDate(), staffscore.getEndDate() };
+				staffscore.getStartDate(), staffscore.getEndDate(),staffscore.getIfDelete() };
 		return BaseDao.executeUpdate(sql, args);
 	}
 
@@ -38,8 +38,8 @@ public class StaffScoreDaoImpl implements StaffScoreDao {
 	@Override
 	public boolean updateStaffScore(Staffscore staff) {
 		// TODO Auto-generated method stub
-		String sql = "UPDATE staffscore s set s.staffScore=? WHERE s.staffScoreID=?";
-		Object[] args = new Object[] { staff.getStaffScore(), staff.getStaffScoreID() };
+		String sql = "UPDATE staffscore s set s.staffScore=?,s.ifdelete=? WHERE s.staffScoreID=?";
+		Object[] args = new Object[] { staff.getStaffScore(),staff.getIfDelete(), staff.getStaffScoreID() };
 		return BaseDao.executeUpdate(sql, args);
 	}
 
@@ -62,6 +62,7 @@ public class StaffScoreDaoImpl implements StaffScoreDao {
 				staffscore.setStaffScore(rs.getInt(3));
 				staffscore.setStartDate(rs.getString(4));
 				staffscore.setEndDate(rs.getString(5));
+				staffscore.setIfDelete(rs.getInt(6));
 				list.add(staffscore);
 			}
 		} catch (Exception e) {
@@ -89,6 +90,7 @@ public class StaffScoreDaoImpl implements StaffScoreDao {
 				staffscore.setStaffScore(rs.getInt(3));
 				staffscore.setStartDate(rs.getString(4));
 				staffscore.setEndDate(rs.getString(5));
+				staffscore.setIfDelete(rs.getInt(6));
 			}
 		} catch (Exception e) {
 			// TODO: handle exception

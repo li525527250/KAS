@@ -7,6 +7,15 @@ public class Posts {
 	private int postID;// 岗位ID
 	private String postName;// 岗位名称
 	private int departmentID;// 部门ID
+	private int ifDelete;//是否删除0-否、1-是  --------新增
+
+	public int getIfDelete() {
+		return ifDelete;
+	}
+
+	public void setIfDelete(int ifDelete) {
+		this.ifDelete = ifDelete;
+	}
 
 	public int getPostID() {
 		return postID;
@@ -32,11 +41,12 @@ public class Posts {
 		this.departmentID = departmentID;
 	}
 
-	public Posts(int postID, String postName, int departmentID) {
+	public Posts(int postID, String postName, int departmentID,int ifdelete) {
 		super();
 		this.postID = postID;
 		this.postName = postName;
 		this.departmentID = departmentID;
+		this.ifDelete=ifdelete;
 	}
 
 	public Posts() {

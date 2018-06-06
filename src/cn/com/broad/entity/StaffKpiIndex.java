@@ -132,5 +132,14 @@ public class StaffKpiIndex {
 	public StaffKpiIndex() {
 		super();
 	}
+	@Override
+	public String toString() {
+		return "StaffKpiIndex [staffName=" + staffName + ", postName=" + postName + ", moduleName=" + moduleName
+				+ ", kpiIndexName=" + kpiIndexName + ", weight=" + weight + ", span=" + span + ", indexDefinition="
+				+ indexDefinition + ", dateSources=" + dateSources + ", computationalFormula=" + computationalFormula
+				+ ", annualObjectives=" + annualObjectives + ", quarterlyAccounting=" + quarterlyAccounting
+				+ ", currentTarget=" + currentTarget + ", currentReality=" + currentReality + ", currentYieldRate="
+				+ currentYieldRate + ", currentScore=" + currentScore + "]";
+	}
 	
 }

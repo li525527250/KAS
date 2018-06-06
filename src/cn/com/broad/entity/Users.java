@@ -47,7 +47,7 @@ public class Users {
 		this.userPassword = userPassword;
 		this.authorityID = authorityID;
 	}
-
+	
 	public Users() {
 		super();
 	}

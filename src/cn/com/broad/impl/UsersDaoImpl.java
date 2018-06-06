@@ -17,7 +17,7 @@ public class UsersDaoImpl implements UserDao {
 	@Override
 	public boolean addUser(Users users) {
 		// TODO Auto-generated method stub
-		String sql = "insert into authority VALUES(null,?,?,?)";
+		String sql = "insert into users VALUES(null,?,?,?)";
 		Object[] args = new Object[] { users.getUserName(), users.getUserPassword(), users.getAuthorityID() };
 		return BaseDao.executeUpdate(sql, args);
 	}
